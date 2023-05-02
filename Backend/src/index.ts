@@ -1,4 +1,4 @@
-const PORT = 8800;
+const PORT = 8000;
 
 import express, {Request, Response} from 'express';
 import cors from 'cors';
