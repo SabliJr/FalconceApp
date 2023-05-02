@@ -1,0 +1,221 @@
+.tableMain {
+    width: 100%;
+}
+
+.coinsTable {
+    width: 97%;
+}
+
+.tableTitle {
+    margin: 1rem 0;
+    color: chocolate;
+}
+
+.CoinName {
+    display: grid;
+    gap: .3rem;
+    margin: 1rem 1rem .6rem;
+    list-style: none;
+    text-align: left;
+}
+
+.CoinPrice {
+    text-align: left;
+}
+
+.CoinImg {
+    width: 2.6rem;
+}
+
+.coinHeadName {
+    transform: translate(-20%);
+}
+
+.CoinImgRow {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    cursor: pointer;
+}
+
+.coinRank {
+    padding: 0 1rem 0 .5rem;
+    text-align: center;
+}
+
+.CoinSupply {
+    margin: 3rem;
+    text-align: center;
+    padding-right: 1.8rem;
+}
+
+.CoinCap {
+    list-style: none;
+    text-align: end;
+}
+
+.CoinUp {
+    background-color: hsla(155, 100%, 82%, 0.829);
+    color: hsl(150, 93%, 28%);
+    padding: .5rem .3rem;
+    margin: 0 1rem;
+    border-radius: .4rem;
+    display: flex;
+}
+
+.CoinDown {
+    background-color: hsl(0, 80%, 88%);
+    color: hsl(0, 93%, 47%);
+    padding: .5rem .3rem;
+    border-radius: .4rem;
+    margin: 0 1rem;
+    display: flex;
+}
+
+.coin24Div {
+    position: relative;
+
+}
+
+.Coin24 {
+    padding: 0 1rem;
+}
+
+.priceIcon {
+    font-size: 1.3rem;
+    align-self: center;
+}
+
+.stickTable {
+    position: sticky;
+    top: 4rem;
+    left: 0;
+    height: 2.5rem;
+    /* color: rgba(51, 69, 86, 0.88); */
+    color: rgb(32, 70, 119);
+    background-color: #f1f4f6;
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 3.3rem;
+    list-style: none;
+    font-size: 1.2rem;
+    align-items: center;
+
+}
+
+.PaginateNum {
+    font-weight: 600;
+    text-decoration: none;
+    padding: .1rem .3rem;
+    margin: 0 0.625rem;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: transparent;
+    color: hsla(160, 14%, 9%, 0.829);
+    border: 2px solid hsla(160, 14%, 9%, 0.829);
+}
+
+.active {
+    font-weight: 900;
+    border-color: #101010;
+    background: #92ea53;
+    color: #101010;
+}
+
+@media screen and (max-width: 1100px) {
+    .tableMain {
+        width: 85%;
+        margin: 0 auto;
+        font-size: .8rem;
+    }
+
+    @media screen and (max-width: 900px) {
+        .tableMain {
+            width: 98%;
+        }
+
+        .removeRowT {
+            display: none;
+        }
+
+        @media screen and (max-width: 700px) {
+
+            .coinsTable {
+                width: 100%;
+            }
+
+            .tableTitle {
+                margin: 1rem 1rem 0;
+                font-size: 1rem;
+            }
+
+            .removeRow {
+                display: none;
+            }
+
+            .CoinName {
+                display: grid;
+                gap: .3rem;
+                margin: .8rem;
+                list-style: none;
+            }
+
+            .CoinUp {
+                padding: .1rem;
+                border-radius: .2rem;
+                margin: 0 .4rem;
+                align-items: center;
+            }
+
+            .CoinDown {
+                padding: .1rem;
+                border-radius: .2rem;
+                margin: 0 .4rem;
+                align-items: center;
+            }
+
+            .CoinImg {
+                width: 2rem;
+                padding: 0 .2rem;
+            }
+
+
+            .Coin24 {
+                padding: 0 .3rem;
+            }
+
+            .stickTable {
+                top: 4rem;
+            }
+
+            /* Pagination */
+            .pagination {
+                margin-top: 2rem;
+                font-size: 1rem;
+            }
+
+            .PaginateNum {
+                padding: .1rem .2rem;
+                margin: 0 .2rem;
+                border-radius: 0.375rem;
+            }
+
+            @media only screen and (max-width: 500px) {
+                .removeCap {
+                    display: none;
+                }
+
+                .coinRank {
+                    padding: 0 0 0 .3rem;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}

@@ -2,14 +2,14 @@ import React from "react";
 
 //Components
 import Status from "../Components/CryptoStatus/Status";
-// import CoinsData from "../Components/CoinsData/CoinsData";
+import CoinsData from "../Components/CoinsData/Coins";
 
 const TheHomePage: React.FC = (props) => {
   return (
     <main className='mainApp'>
       <Status />
       {/* <article className='mainArt'> */}
-      {/* <CoinsData /> */}
+      <CoinsData />
       {/* <CryptoNews /> */}
       {/* </article> */}
       {/* <TheFooter /> */}
