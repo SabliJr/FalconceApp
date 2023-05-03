@@ -1,0 +1,176 @@
+.coinHeader {
+    margin: 5rem 0 2rem;
+}
+
+.rank {
+    background-color: chocolate;
+    color: azure;
+    padding: .2rem .3rem;
+    font-size: 1rem;
+    border-radius: .4rem;
+    margin-left: 2rem;
+}
+
+.coinImg {
+    width: 4.875rem;
+    margin: 1rem;
+}
+
+.coinName {
+    display: flex;
+    align-items: center;
+}
+
+.coinNameP {
+    font-size: 1.5rem;
+    font-weight: 600;
+    display: flex;
+    color: rgb(32, 70, 119);
+    margin-bottom: 1rem;
+    gap: .6rem;
+}
+
+.headerPrice {
+    display: flex;
+    font-size: 1rem;
+    color: rgba(51, 69, 86, 0.88);
+    align-items: center;
+}
+
+.headerP {
+    font-size: 1.4rem;
+    background-color: #fff;
+    padding: .4rem .5rem;
+    border-radius: .4rem;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.numDiv {
+    display: flex;
+    align-items: flex-start;
+    padding: 2rem;
+    justify-content: space-between;
+    background-color: #fff;
+    border-radius: .8rem;
+    border: 1px solid #cce7d0;
+}
+
+.numDivP {
+    color: rgb(32, 70, 119);
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+#chang24 {
+    background-color: #c5c9cce2;
+    padding: .2rem .3rem;
+    border-radius: .4rem;
+    font-size: .8rem;
+}
+
+.CapUp {
+    color: hsl(150, 93%, 28%);
+    display: inline-block;
+    background-color: hsla(155, 100%, 82%, 0.829);
+    border-radius: .25rem;
+    padding: .1rem;
+    font-size: .8rem;
+}
+
+.CapDown {
+    color: hsl(0, 93%, 47%);
+    display: inline-block;
+    text-align: center;
+    background-color: hsl(0, 80%, 88%);
+    border-radius: .25rem;
+    padding: .1rem;
+    font-size: .8rem;
+}
+
+.totalVol,
+.TotalDiv {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: .6rem;
+}
+
+.allCenter {
+    display: flex;
+    color: rgba(51, 69, 86, 0.88);
+    font-size: 1rem;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+}
+
+.coinDesc {
+    margin: 5rem 0;
+}
+
+.coinDesc h2 {
+    color: chocolate;
+    margin: 1.5rem 0;
+}
+
+.coinDesc p {
+    color: rgba(51, 69, 86, 0.88);
+}
+
+@media screen and (max-width: 1100px) {
+    .coinHeader {
+        margin: 3rem 2rem;
+    }
+
+    .numDiv {
+        margin: 0 2rem;
+    }
+
+    .coinDesc {
+        margin: 2.5rem 2rem;
+    }
+
+    @media screen and (max-width: 900px) {
+        .numDiv {
+            margin: 0 3rem;
+            gap: 2em;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        @media screen and (max-width: 700px) {
+            .coinHeader {
+                margin: 3rem 0 2rem;
+            }
+
+            .headerP {
+                font-size: 1rem;
+            }
+
+            .coinNameP {
+                margin-bottom: .4rem;
+            }
+
+            .coinImg {
+                width: 4rem;
+            }
+
+            .numDiv {
+                flex-direction: column;
+                gap: 2rem;
+                margin: 0 1.3rem;
+            }
+
+            .numDivP {
+                font-size: 1rem;
+            }
+
+            .coinDesc {
+                margin: 3rem 1.3rem;
+                overflow: hidden;
+            }
+
+        }
+
+    }
+}

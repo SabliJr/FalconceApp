@@ -1,4 +1,4 @@
-const PORT = 8800;
+const PORT = 8000;
 
 import express, {Request, Response} from 'express';
 import cors from 'cors';
@@ -77,7 +77,7 @@ app.get("/news", (req, resp) => {
 //Getting Single Coin Data
 app.get("/coin", (req, resp) => {
   const coinId = req.query.coinid;
-
+  
   const options = {
     method: "GET",
     url: `https://coingecko.p.rapidapi.com/coins/${coinId}`,
