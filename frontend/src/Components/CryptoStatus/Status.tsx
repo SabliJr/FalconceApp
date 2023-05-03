@@ -2,7 +2,7 @@ import MarketStatus from "./MarketStatus";
 import "./CryptoStatus.css";
 
 //Redux
-import { useGetCryptoStatusQuery } from "../../Features/statusSlice";
+import { useGetCryptoStatusQuery } from "../../Features/CoinsData";
 import { iStatus } from "../../Types/interfaces";
 
 const Status = (): JSX.Element => {

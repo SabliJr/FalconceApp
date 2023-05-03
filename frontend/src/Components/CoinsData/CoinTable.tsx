@@ -18,7 +18,7 @@ const CoinsTable = ({ coin }: iTable): JSX.Element => {
 
   let navigate = useNavigate();
   let clickedCoin = (id: string): void => {
-    navigate(`coin-page/${id}`);
+    navigate(`coin/${id}`);
   };
 
   return (
