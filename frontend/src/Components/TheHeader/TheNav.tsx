@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { SiFalcon } from "react-icons/si";
 
 //Component
-import Search from "./Search";
+import Search from "../Search/SearchData";
 
 const Navbar = (): JSX.Element => {
   let navigate = useNavigate();

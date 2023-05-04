@@ -1,8 +1,15 @@
-export interface ISearchCoin  {
-    symbol: string,
-    name: string,
-    large: string
+export interface iSearchCoin {
+  categories?: [] | undefined;
+  coins: {
+    id: string;
+    name: string;
+    symbol: string;
+    large: string;
+  }[];
+  exchanges?: [] | undefined;
+  nfts?: [] | undefined;
 }
+
 
 export interface iStatus {
     active_cryptocurrencies: number;
@@ -11,9 +18,8 @@ export interface iStatus {
     btc_dominance_24h_percentage_change: number;
     quote: {
         USD: {
-    total_market_cap_yesterday_percentage_change: number;
-    total_market_cap: number;
-
+            total_market_cap_yesterday_percentage_change: number;
+            total_market_cap: number;
         }
     }
 }
