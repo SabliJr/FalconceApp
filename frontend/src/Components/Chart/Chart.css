@@ -1,0 +1,28 @@
+.chart {
+    margin: 5rem 0;
+}
+
+.btnDiv {
+    display: flex;
+    justify-content: space-between;
+    margin: 2.5rem 1rem;
+}
+
+.btnDiv>div {
+    background-color: rgb(199, 198, 198);
+    border-radius: .3rem;
+}
+
+.btns {
+    margin: .3rem;
+    border: none;
+    font-size: 1rem;
+    padding: 3px;
+    border-radius: .3rem;
+    background-color: rgb(199, 198, 198);
+    cursor: pointer;
+}
+
+.activeBtn {
+    background-color: #f6f7f8e2;
+}

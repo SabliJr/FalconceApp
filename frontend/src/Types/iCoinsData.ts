@@ -39,6 +39,11 @@ export interface iCoin {
     }
 }
 
-
+export interface iChartData {
+    prices: {
+        price: number;
+        time: number;
+    }[]
+}
 
 
