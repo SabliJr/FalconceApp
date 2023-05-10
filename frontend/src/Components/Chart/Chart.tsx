@@ -1,4 +1,4 @@
-import { Area, Line } from "@ant-design/plots";
+import { Area } from "@ant-design/plots";
 import moment from "moment";
 import { iChartData } from "../../Types/iCoinsData";
 import millify from "millify";
@@ -9,6 +9,10 @@ export type iValues = {
 
 interface iData {
   data: iChartData;
+  isActive: {
+    timeBtn: string;
+    capitalBtn: string;
+  };
 }
 
 interface iStyle {
@@ -27,19 +31,26 @@ interface iStyle {
   Legend: boolean;
 }
 
-const DemoArea = ({ data }: iData) => {
-  const coinChartData =
+const DemoArea = ({ data, isActive }: iData) => {
+  const priceData =
     data?.prices.map((value: iValues) => ({
       date: moment(value[0]).format("MMM DD"),
       price: `$ ${millify(value[1])}`,
     })) || [];
 
-  console.log(coinChartData);
+  const marketCapData =
+    data?.market_caps.map((x: iValues) => ({
+      date: moment(x[0]).format("MMM DD"),
+      marketCap: `$ ${millify(x[1])}`,
+    })) || [];
+
+  let isData = isActive.capitalBtn === "Price" ? priceData : marketCapData;
+  let isPrice = isActive.capitalBtn === "Price" ? "price" : "marketCap";
 
   const config: iStyle = {
-    data: coinChartData,
+    data: isData,
     xField: "date",
-    yField: "price",
+    yField: isPrice,
     // xAxis: {
     //   range: [0, 1],
     //   tickCount: true,

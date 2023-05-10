@@ -43,7 +43,11 @@ export interface iChartData {
     prices: {
         price: number;
         time: number;
-    }[]
+    }[];
+    market_caps: {
+        market_cap: number;
+        time: number;
+    }[];
 }
 
 

@@ -1,23 +1,47 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useGetChartDataQuery } from "../../Features/CoinSearch";
+import { useParams } from "react-router-dom";
 import Chart from "./Chart";
 import "./Chart.css";
 
 const CoinChart: React.FC = (props) => {
   let timeBtns: string[] = ["24h", "7D", "1M", "3M"];
   let priceBtns: string[] = ["Price", "MarketCap"];
+  const [periodData, setPeriodData] = useState("1");
   const [isActive, setActive] = useState({
-    timeBtn: 0,
-    capitalBtn: 0,
+    timeBtn: timeBtns[0],
+    capitalBtn: priceBtns[0],
   });
 
+  let { id } = useParams<Record<string, string | undefined>>();
+  let params = `${id}`;
+
   //Fetching Data
-  const [periodData, setPeriodData] = useState("1");
   const { data, isLoading, error } = useGetChartDataQuery({
-    coinId: "bitcoin",
+    coinId: params,
     period: periodData,
-    timeStamp: "daily",
+    timeStamp: isActive.timeBtn === "3M" ? "daily" : null,
   });
+
+  useEffect(() => {
+    let Fetching = () => {
+      if (isActive.timeBtn === "7D") {
+        setPeriodData("7");
+        console.log(periodData);
+      } else if (isActive.timeBtn === "1M") {
+        setPeriodData("30");
+        console.log(periodData);
+      } else if (isActive.timeBtn === "3M") {
+        setPeriodData("90");
+        console.log(periodData);
+      } else {
+        setPeriodData("1");
+        console.log(periodData);
+      }
+    };
+
+    Fetching();
+  }, [periodData, isActive.timeBtn]);
 
   return (
     <section className='chart'>
@@ -29,16 +53,16 @@ const CoinChart: React.FC = (props) => {
         <>
           <div className='btnDiv'>
             <div>
-              {priceBtns.map((btn, i) => (
+              {priceBtns.map((btn) => (
                 <button
                   key={btn}
                   className={
-                    i === isActive.capitalBtn ? "activeBtn btns" : "btns"
+                    btn === isActive.capitalBtn ? "activeBtn btns" : "btns"
                   }
                   onClick={() =>
                     setActive({
                       ...isActive,
-                      capitalBtn: i,
+                      capitalBtn: btn,
                     })
                   }>
                   {btn}
@@ -46,14 +70,16 @@ const CoinChart: React.FC = (props) => {
               ))}
             </div>
             <div>
-              {timeBtns.map((btn, i) => (
+              {timeBtns.map((btn) => (
                 <button
                   key={btn}
-                  className={i === isActive.timeBtn ? "activeBtn btns" : "btns"}
+                  className={
+                    btn === isActive.timeBtn ? "activeBtn btns" : "btns"
+                  }
                   onClick={() =>
                     setActive({
                       ...isActive,
-                      timeBtn: i,
+                      timeBtn: btn,
                     })
                   }>
                   {btn}
@@ -61,7 +87,7 @@ const CoinChart: React.FC = (props) => {
               ))}
             </div>
           </div>
-          <Chart data={data} />
+          <Chart data={data} isActive={isActive} />
         </>
       ) : null}
     </section>
