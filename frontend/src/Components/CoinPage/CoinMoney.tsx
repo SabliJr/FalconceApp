@@ -8,8 +8,6 @@ type tMoney = {
 };
 
 const CoinMoney = ({ coin }: tMoney): JSX.Element => {
-  console.log(coin);
-
   return (
     <div className='numDiv'>
       {/* The Volume */}

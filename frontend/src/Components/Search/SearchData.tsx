@@ -8,7 +8,9 @@ import { MagnifyingGlass } from "react-loader-spinner";
 
 const SearchData = () => {
   const [searchCoin, setSearchCoin] = useState("");
-  const { data, isLoading, error } = useGetSearchCoinQuery(searchCoin);
+  const { data, isLoading, error } = useGetSearchCoinQuery(searchCoin, {
+    skip: searchCoin.length < 3 ? true : false,
+  });
 
   let navigate = useNavigate();
   let searchedCoin = (id: string) => {
@@ -36,9 +38,7 @@ const SearchData = () => {
         </div>
       </div>
       <article
-        className={
-          data && searchCoin.length < 3 ? "panel removePanel" : "panel"
-        }>
+        className={searchCoin.length < 3 ? "panel removePanel" : "panel"}>
         {error ? (
           <h3>Oops, something went wrong please refresh again.</h3>
         ) : isLoading ? (
@@ -56,31 +56,27 @@ const SearchData = () => {
           <div>
             <ul className='PList'>
               {data?.coins.map((coin) => {
-                if (searchCoin.length < 3) {
-                  return null;
-                } else {
-                  return (
-                    <li
-                      key={coin.id}
-                      className='searchList'
-                      onClick={() => {
-                        searchedCoin(coin.id);
-                        setSearchCoin("");
-                      }}>
-                      <img
-                        src={coin.large}
-                        alt='searchImg'
-                        className='searchImg'
-                      />
-                      <div className='searchNameDiv'>
-                        <p className='searchSymbol'>
-                          {coin.symbol.toUpperCase()}
-                        </p>
-                        <p className='searchName'>{coin.name}</p>
-                      </div>
-                    </li>
-                  );
-                }
+                return (
+                  <li
+                    key={coin.id}
+                    className='searchList'
+                    onClick={() => {
+                      searchedCoin(coin.id);
+                      setSearchCoin("");
+                    }}>
+                    <img
+                      src={coin.large}
+                      alt='searchImg'
+                      className='searchImg'
+                    />
+                    <div className='searchNameDiv'>
+                      <p className='searchSymbol'>
+                        {coin.symbol.toUpperCase()}
+                      </p>
+                      <p className='searchName'>{coin.name}</p>
+                    </div>
+                  </li>
+                );
               })}
             </ul>
           </div>

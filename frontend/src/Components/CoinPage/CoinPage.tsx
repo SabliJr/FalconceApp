@@ -7,6 +7,7 @@ import "./SingleCoin.css";
 import CoinHeader from "./CoinHeader";
 import CoinMoney from "./CoinMoney";
 import CoinDesc from "./CoinDesc";
+import CoinChart from "../Chart/CoinChart";
 import Footer from "../TheFooter/Footer";
 
 const SingleCoin = (): JSX.Element => {
@@ -38,6 +39,7 @@ const SingleCoin = (): JSX.Element => {
         <>
           <CoinHeader coin={data} />
           <CoinMoney coin={data} />
+          <CoinChart />
           <CoinDesc coin={data} />
           <Footer />
         </>

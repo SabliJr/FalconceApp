@@ -11,7 +11,7 @@ const CoinDesc = ({ coin }: tDesc) => {
     <div className='coinDesc'>
       <h2>What is {coin?.name}</h2>
       {coin?.description?.en === "" ? (
-        <p>There's no description for {coin?.name}</p>
+        <p> {coin?.name} has no description</p>
       ) : (
         <>
           <p
