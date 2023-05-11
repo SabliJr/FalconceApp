@@ -24,7 +24,11 @@ const CoinsTable = ({ coin }: iTable): JSX.Element => {
   return (
     <tr>
       <td>
-        <AiOutlineStar />
+        <AiOutlineStar
+          style={{
+            cursor: "pointer",
+          }}
+        />
       </td>
       <td className='coinRank'>{coin.market_cap_rank}</td>
       <td

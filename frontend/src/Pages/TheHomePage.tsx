@@ -9,10 +9,7 @@ const TheHomePage: React.FC = (props) => {
   return (
     <main className='mainApp'>
       <Status />
-      {/* <article className='mainArt'> */}
       <CoinsData />
-      {/* <CryptoNews /> */}
-      {/* </article> */}
       <Footer />
     </main>
   );

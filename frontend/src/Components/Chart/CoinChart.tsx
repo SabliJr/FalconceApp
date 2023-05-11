@@ -23,6 +23,8 @@ const CoinChart: React.FC = (props) => {
     timeStamp: isActive.timeBtn === "3M" ? "daily" : null,
   });
 
+  // console.log(data);
+
   useEffect(() => {
     let Fetching = () => {
       if (isActive.timeBtn === "7D") {

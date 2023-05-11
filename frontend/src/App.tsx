@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import TheNav from "./Components/TheHeader/TheNav";
 import TheHomePage from "./Pages/TheHomePage";
 import CoinPage from "./Pages/CoinPage";
+import WatchList from "./Pages/WatchList";
+import Portfolio from "./Pages/Portfolio";
 
 const App = () => {
   return (
@@ -11,10 +13,11 @@ const App = () => {
       <div className='App'>
         <TheNav />
       </div>
-      {/* <SearchData /> */}
       <Routes>
         <Route path='/' element={<TheHomePage />} />
         <Route path='/coin/:id' element={<CoinPage />} />
+        <Route path='portfolio' element={<Portfolio />} />
+        <Route path='watch-list' element={<WatchList />} />
       </Routes>
     </Router>
   );

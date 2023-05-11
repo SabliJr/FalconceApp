@@ -34,19 +34,23 @@ interface iStyle {
 const DemoArea = ({ data, isActive }: iData) => {
   const priceData =
     data?.prices.map((value: iValues) => ({
-      date: moment(value[0]).format("MMM DD"),
+      date:
+        isActive.timeBtn === "3M"
+          ? moment(value[0]).format("MMM DD")
+          : value[0],
       price: `$ ${millify(value[1])}`,
     })) || [];
 
   const marketCapData =
     data?.market_caps.map((x: iValues) => ({
-      date: moment(x[0]).format("MMM DD"),
+      date: isActive.timeBtn === "3M" ? moment(x[0]).format("MMM DD") : x[0],
       marketCap: `$ ${millify(x[1])}`,
     })) || [];
 
   let isData = isActive.capitalBtn === "Price" ? priceData : marketCapData;
   let isPrice = isActive.capitalBtn === "Price" ? "price" : "marketCap";
 
+  console.log(priceData);
   const config: iStyle = {
     data: isData,
     xField: "date",
