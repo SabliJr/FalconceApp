@@ -14,7 +14,7 @@ import Search from "../Search/SearchData";
 const Navbar = (): JSX.Element => {
   let navigate = useNavigate();
   const [isOpen, setOpen] = useState(false);
-  let menuRef = useRef<HTMLUListElement>(null);
+  // let menuRef = useRef<HTMLLIElement>(null);
   const bergerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -22,19 +22,18 @@ const Navbar = (): JSX.Element => {
       e: React.MouseEvent<HTMLUListElement, HTMLDivElement>
     ) => {
       if (
-        !menuRef?.current?.contains(e.target as Node) &&
+        // !menuRef?.current?.contains(e.target as Node) &&
         !bergerRef?.current?.contains(e.target as HTMLElement)
-      )
+      ) {
         setOpen(false);
+      }
     };
     document.addEventListener("mousedown", handleMenu as () => void);
-    document.addEventListener("scroll", handleMenu as () => void);
 
     return () => {
       document.removeEventListener("mousedown", handleMenu as () => void);
-      document.removeEventListener("scroll", handleMenu as () => void);
     };
-  });
+  }, []);
 
   return (
     <nav className='NavBar'>
@@ -49,8 +48,9 @@ const Navbar = (): JSX.Element => {
         <h1 className='Logo'>Falconce</h1>
       </div>
       <div className='menu'>
-        <ul className={isOpen ? "isOpen ulList" : "ulList"} ref={menuRef}>
+        <ul className={isOpen ? "isOpen ulList" : "ulList"}>
           <li
+            // ref={menuRef}
             onClick={() => {
               navigate("portfolio");
             }}>
