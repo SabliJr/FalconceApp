@@ -1,4 +1,4 @@
-import { useGetCoinDataQuery } from "../../Features/CoinsData";
+import { useGetCoinDataQuery } from "../../Redux/Features/CoinsData";
 import { useParams } from "react-router-dom";
 import { LineWave } from "react-loader-spinner";
 import "./SingleCoin.css";

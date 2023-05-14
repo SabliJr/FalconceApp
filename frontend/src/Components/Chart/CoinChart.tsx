@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useGetChartDataQuery } from "../../Features/CoinSearch";
+import { useGetChartDataQuery } from "../../Redux/Features/CoinSearch";
 import { useParams } from "react-router-dom";
 import Chart from "./Chart";
 import "./Chart.css";

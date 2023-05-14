@@ -1,4 +1,4 @@
-import { useGetCoinsDataQuery } from "../../Features/CoinsData";
+import { useGetCoinsDataQuery } from "../../Redux/Features/CoinsData";
 import "./CoinsData.css";
 
 interface iPagination {

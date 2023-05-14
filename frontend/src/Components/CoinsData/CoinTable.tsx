@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "../../Store/store";
-import { AddToList, RemoveFromList } from "../../Features/WatchListStore";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../Redux/Store/store";
+import { AddToList, RemoveFromList } from "../../Redux/Features/WatchListStore";
+// import useStoredState from "../../localStorage/useStoredState";
 import "./CoinsData.css";
 
 import millify from "millify";
@@ -15,9 +16,9 @@ interface iTable {
 
 const CoinsTable = ({ coin }: iTable) => {
   const [isOnList, setOnList] = useState(false);
-  const theList = useSelector((state: RootState) => state.WatchList.laList);
   const dispatch = useDispatch();
-  console.log(isOnList);
+
+  const theList = useSelector((state: RootState) => state.WatchList.laList);
 
   let num = new Intl.NumberFormat("en-US", {
     style: "currency",
@@ -32,6 +33,63 @@ const CoinsTable = ({ coin }: iTable) => {
   let pickCoin = (isOnList: boolean): void => {
     isOnList ? dispatch(AddToList(coin)) : dispatch(RemoveFromList(coin));
   };
+
+  // useEffect(() => {
+  //   localStorage.setItem("List", JSON.stringify(theList));
+  // }, [theList, dispatch]);
+
+  // useEffect(() => {
+  //   const storedList = localStorage.getItem("List");
+  //   if (storedList) {
+  //     const parsedList = JSON.parse(storedList);
+  //     if (Array.isArray(parsedList)) {
+  //       // storedList is an array, so add each item individually
+  //       parsedList.forEach((coin) => dispatch(AddToList(coin)));
+  //     } else {
+  //       // storedList is a single object, so add it to the list
+  //       dispatch(AddToList(parsedList));
+  //     }
+  //   }
+  // }, [dispatch]);
+
+  // useEffect(() => {
+  //   const storedList = localStorage.getItem("List");
+  //   if (storedList) {
+  //     const parsedList = JSON.parse(storedList);
+  //     if (Array.isArray(parsedList)) {
+  //       // storedList is an array, so add each item individually
+  //       parsedList.forEach((coin) => dispatch(AddToList(coin)));
+  //     } else {
+  //       // storedList is a single object, so add it to the list
+  //       dispatch(AddToList(parsedList));
+  //     }
+  //   }
+  // }, [dispatch]);
+
+  const handleAddToList = useCallback(
+    (coin: iTable) => {
+      dispatch(AddToList(coin));
+    },
+    [dispatch]
+  );
+
+  useEffect(() => {
+    localStorage.setItem("List", JSON.stringify(theList));
+  }, [theList, handleAddToList]);
+
+  useEffect(() => {
+    const storedList = localStorage.getItem("List");
+    if (storedList) {
+      const parsedList = JSON.parse(storedList);
+      if (Array.isArray(parsedList)) {
+        // storedList is an array, so add each item individually
+        parsedList.forEach((coin) => handleAddToList(coin));
+      } else {
+        // storedList is a single object, so add it to the list
+        handleAddToList(parsedList);
+      }
+    }
+  }, [handleAddToList]);
 
   return (
     <tr>

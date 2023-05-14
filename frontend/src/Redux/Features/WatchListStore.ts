@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-import { iCoins } from '../Types/iCoinsData'
+import { iCoins } from '../../Types/iCoinsData'
 
 export interface ListState {
   laList: iCoins[]
