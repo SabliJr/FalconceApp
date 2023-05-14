@@ -8,10 +8,7 @@ interface IProps {}
 
 const WatchList: FC<IProps> = (props) => {
   const theList = useSelector((state: RootState) => state.WatchList.laList);
-  // const [storedState, setStoredState] = useStoredState("List", theList);
-  // console.log(storedState);
-  // console.log(theList);
-  // console.log("theList");
+  console.log(theList);  
 
   return (
     <div

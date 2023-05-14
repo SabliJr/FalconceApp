@@ -1,13 +1,19 @@
 import { createSlice } from '@reduxjs/toolkit'
-
 import { iCoins } from '../../Types/iCoinsData'
 
+
 export interface ListState {
-  laList: iCoins[]
+  laList: iCoins[];
 }
 
+const storedList = localStorage.getItem("List") 
+const initialList = storedList !== null
+  ? JSON.parse(storedList as string) : [];
+
+
+
 const initialState: ListState = {
-    laList: [],
+    laList: initialList,
 }
 
 export const listSlice = createSlice({
@@ -15,14 +21,18 @@ export const listSlice = createSlice({
   initialState,
   reducers: {
     AddToList: (state, action) => {
-      const makeList = state.laList.find((x) => x.id === action.payload.id)
+      const makeList =  state.laList.find((x) => x.id === action.payload.id)
         if (!makeList) {
           state.laList.push(action.payload)
         }
+      localStorage.setItem('List', JSON.stringify(state.laList.map((x) => x)))
+
     },
     RemoveFromList: (state, action) => {
       const modifiedList = state.laList.filter((x) => x.id !== action.payload.id)
       state.laList = modifiedList;
+      localStorage.setItem('List', JSON.stringify(state.laList.map((x) => x)))
+
     },
   
   },
