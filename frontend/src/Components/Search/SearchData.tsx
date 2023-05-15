@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "../TheHeader/Navbar.css";
 
-import { useGetSearchCoinQuery } from "../../Features/CoinSearch";
+import { useGetSearchCoinQuery } from "../../Redux/Features/CoinSearch";
 import { useNavigate } from "react-router-dom";
 import { BiSearch } from "react-icons/bi";
 import { MagnifyingGlass } from "react-loader-spinner";

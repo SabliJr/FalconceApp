@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./CoinsData.css";
 
 import { Dna } from "react-loader-spinner";
-import { useGetCoinsDataQuery } from "../../Features/CoinsData";
+import { useGetCoinsDataQuery } from "../../Redux/Features/CoinsData";
 import CoinTable from "./CoinTable";
 import Pagination from "./Pagination";
 

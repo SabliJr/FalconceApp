@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { iCoins, iCoin } from "../Types/iCoinsData";
-import { iStatus } from "../Types/interfaces";
+import { iCoins, iCoin } from "../../Types/iCoinsData";
+import { iStatus } from "../../Types/interfaces";
 
 export const CoinsData = createApi({
   reducerPath: "CoinsData",

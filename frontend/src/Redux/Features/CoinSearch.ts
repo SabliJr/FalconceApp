@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { iSearchCoin } from "../Types/interfaces";
-import { iChartData } from "../Types/iCoinsData";
+import { iSearchCoin } from "../../Types/interfaces";
+import { iChartData } from "../../Types/iCoinsData";
 
 type tParams = {
   coinId: string;
