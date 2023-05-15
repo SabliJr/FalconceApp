@@ -1,0 +1,10 @@
+.portfolio {
+    max-width: 1124px;
+    margin: 5rem auto;
+}
+
+.balance {
+    margin: 5rem 0;
+    display: flex;
+    justify-content: space-between;
+}

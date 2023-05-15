@@ -5,7 +5,7 @@ import TheNav from "./Components/TheHeader/TheNav";
 import TheHomePage from "./Pages/TheHomePage";
 import CoinPage from "./Pages/CoinPage";
 import WatchList from "./Pages/WatchList";
-import Portfolio from "./Pages/Portfolio";
+import Portfolio from "./Pages/PortfolioPages/Portfolio";
 
 const App = () => {
   return (

@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../Redux/Store/store";
+import { useDispatch } from "react-redux";
 import { AddToList, RemoveFromList } from "../../Redux/Features/WatchListStore";
 import "./CoinsData.css";
 
@@ -17,8 +16,6 @@ const CoinsTable = ({ coin }: iTable): JSX.Element => {
   const [isOnList, setOnList] = useState(false);
   const dispatch = useDispatch();
 
-  const theList = useSelector((state: RootState) => state.WatchList.laList);
-
   let num = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
@@ -29,10 +26,12 @@ const CoinsTable = ({ coin }: iTable): JSX.Element => {
     navigate(`coin/${id}`);
   };
 
+  //Add the items the Redux store
   let pickCoin = (isOnList: boolean): void => {
     isOnList ? dispatch(AddToList(coin)) : dispatch(RemoveFromList(coin));
   };
 
+  //Load the items in the localStorage
   useEffect(() => {
     const savedList = localStorage.getItem("List");
     if (savedList) {
