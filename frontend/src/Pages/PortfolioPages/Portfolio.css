@@ -1,10 +1,103 @@
 .portfolio {
     max-width: 1124px;
     margin: 5rem auto;
+    position: relative;
+}
+
+.portfolio h2 {
+    color: chocolate;
+    font-size: 1.6rem;
+    font-weight: bold;
+    letter-spacing: 1px;
 }
 
 .balance {
     margin: 5rem 0;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+}
+
+.addAssetsBtn {
+    background-color: rgb(32, 70, 119);
+    color: white;
+    font-size: 1.5rem;
+    padding: .3rem .5rem;
+    border: transparent;
+    border-radius: .6rem;
+    cursor: pointer;
+}
+
+.balanceText p {
+    font-size: 1rem;
+    color: rgba(63, 81, 98, 0.88);
+    align-items: center;
+    display: flex;
+    gap: 0.3rem;
+}
+
+.balanceText h3 {
+    color: rgba(24, 33, 41, 0.88);
+    margin: .5rem 0;
+    font-size: 2.2rem;
+}
+
+.balanceText span {
+    color: hsl(150, 93%, 28%);
+    display: inline-block;
+    border-radius: .25rem;
+    padding: .1rem;
+    font-size: 1rem;
+}
+
+.balanceText span:first-child {
+    background-color: #c5c9cce2;
+    padding: .2rem .3rem;
+    border-radius: .4rem;
+    font-size: .8rem;
+    font-style: italic;
+    font-weight: bold;
+    color: rgb(32, 70, 119);
+}
+
+@media only screen and (max-width: 1024px) {
+    .portfolio {
+        margin: 5rem;
+    }
+
+    @media only screen and (max-width: 800px) {
+        .portfolio {
+            margin: 5rem 1.5rem;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .addAssetsBtn {
+                font-size: .8rem;
+                border-radius: .4rem;
+            }
+
+            .balanceText p {
+                font-size: .7rem;
+            }
+
+            .balanceText h3 {
+                font-size: 1.3rem;
+                margin: .3rem 0;
+            }
+
+            .balanceText span {
+                font-size: .8rem;
+            }
+
+            .balanceText span:first-child {
+                font-size: .6rem;
+                font-weight: bold;
+            }
+
+            .portfolio h2 {
+                font-size: 1.2rem;
+            }
+
+        }
+    }
 }
