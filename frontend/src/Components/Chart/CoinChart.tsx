@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useGetChartDataQuery } from "../../Redux/Features/CoinSearch";
 import { useParams } from "react-router-dom";
 import Chart from "./Chart";
+import RChart from "./rChart";
 import "./Chart.css";
 
 const CoinChart: React.FC = (props) => {
@@ -90,6 +91,7 @@ const CoinChart: React.FC = (props) => {
             </div>
           </div>
           <Chart data={data} isActive={isActive} />
+          {/* <RChart /> */}
         </>
       ) : null}
     </section>
