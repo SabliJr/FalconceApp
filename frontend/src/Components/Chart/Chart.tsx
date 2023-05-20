@@ -64,7 +64,7 @@ const DemoArea = ({ data, isActive }: iData) => {
         isActive.timeBtn === "3M"
           ? moment(value[0]).format("MMM DD")
           : moment(value[0]).format("hh:ss"),
-      price: num.format(value[1]),
+      price: value[1],
       // `$ ${millify(value[1])}`,
     })) || [];
 
@@ -74,7 +74,8 @@ const DemoArea = ({ data, isActive }: iData) => {
         isActive.timeBtn === "3M"
           ? moment(x[0]).format("MMM DD")
           : moment(x[0]).format("h"),
-      marketCap: `$ ${millify(x[1])}`,
+      marketCap: x[1],
+      // `$ ${millify(x[1])}`,
     })) || [];
 
   let isData = isActive.capitalBtn === "Price" ? priceData : marketCapData;
@@ -121,7 +122,7 @@ const DemoArea = ({ data, isActive }: iData) => {
       isActive.timeBtn === "3M"
         ? moment(y[0]).format("MMM DD")
         : moment(y[0]).format("hh:ss"),
-    price: `$ ${millify(y[1])}`,
+    price: y[1].toFixed(3),
   }));
   console.log(graphDate);
 
@@ -129,27 +130,38 @@ const DemoArea = ({ data, isActive }: iData) => {
     <div
       style={{
         height: "350px",
+        margin: "auto",
+        maxWidth: "95%",
       }}>
       <ResponsiveContainer width='100%' min-height='100%'>
-        <AreaChart
-          width={500}
-          height={400}
-          data={graphDate}
-          margin={{
-            top: 10,
-            right: 30,
-            left: 0,
-            bottom: 0,
-          }}>
-          <CartesianGrid strokeDasharray='3 3' />
-          <XAxis dataKey='Date' />
-          <YAxis />
-          <Tooltip />
-          <Area
-            type='monotone'
+        <AreaChart data={graphDate}>
+          <defs>
+            <linearGradient id='color' x1='0' y1='0' x2='0' y2='1'>
+              <stop offset='0%' stopColor='#2451B7' stopOpacity={0.4} />
+              <stop offset='75%' stopColor='#2451B7' stopOpacity={0.05} />
+            </linearGradient>
+          </defs>
+
+          <CartesianGrid strokeDasharray='3 3' opacity={0.3} vertical={false} />
+
+          <XAxis dataKey='Date' axisLine={false} tickLine={false} />
+
+          <YAxis
+            tickLine={false}
+            axisLine={false}
+            tickCount={8}
             dataKey='price'
-            stroke='#8884d8'
-            fill='#8884d8'
+            tickFormatter={(number) => `$${number.toFixed(2)}`}
+            allowDecimals={true}
+          />
+
+          <Tooltip />
+
+          <Area
+            // type='monotone'
+            dataKey='price'
+            stroke='#2451B7'
+            fill='url(#color)'
           />
         </AreaChart>
       </ResponsiveContainer>
