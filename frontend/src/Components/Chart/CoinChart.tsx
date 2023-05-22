@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useGetChartDataQuery } from "../../Redux/Features/CoinSearch";
 import { useParams } from "react-router-dom";
-import Chart from "./NewChart";
+import Chart from "./Chart";
 import "./Chart.css";
 
 const CoinChart: React.FC = (props) => {

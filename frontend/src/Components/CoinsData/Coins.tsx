@@ -35,7 +35,7 @@ const CoinsData = (): JSX.Element => {
       ) : data ? (
         <main className='tableMain'>
           <h2 className='tableTitle'>
-            The Top 250 Active Cryptocurrencies In the Market
+            Top 250 Active Cryptocurrencies In the Market
           </h2>
           <table className='coinsTable'>
             <thead className='stickTable'>
