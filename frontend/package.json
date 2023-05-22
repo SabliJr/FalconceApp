@@ -19,6 +19,7 @@
     "apexcharts": "^3.40.0",
     "bizcharts": "^4.1.22",
     "chart.js": "^4.3.0",
+    "chartjs-adapter-moment": "^1.0.1",
     "echarts": "^5.4.2",
     "millify": "^6.1.0",
     "moment": "^2.29.4",

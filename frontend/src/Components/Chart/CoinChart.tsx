@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import { useGetChartDataQuery } from "../../Redux/Features/CoinSearch";
 import { useParams } from "react-router-dom";
-import Chart from "./Chart";
-import NewChart from "./NewChart";
+import Chart from "./NewChart";
 import "./Chart.css";
 
 const CoinChart: React.FC = (props) => {
@@ -21,10 +20,9 @@ const CoinChart: React.FC = (props) => {
   const { data, isLoading, error } = useGetChartDataQuery({
     coinId: params,
     period: periodData,
-    timeStamp: isActive.timeBtn === "3M" ? "daily" : null,
+    timeStamp:
+      isActive.timeBtn === "3M" || isActive.timeBtn === "1M" ? "daily" : null,
   });
-
-  // console.log(data);
 
   useEffect(() => {
     let Fetching = () => {
@@ -90,8 +88,7 @@ const CoinChart: React.FC = (props) => {
               ))}
             </div>
           </div>
-          {/* <Chart data={data} isActive={isActive} /> */}
-          <NewChart data={data} isActive={isActive} id={id} />
+          <Chart data={data} isActive={isActive} id={id} />
         </>
       ) : null}
     </section>
