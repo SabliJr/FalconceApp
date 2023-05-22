@@ -21,10 +21,10 @@ const SingleCoin = (): JSX.Element => {
       {error ? (
         <h3>Oops, Something went wrong please refresh again</h3>
       ) : isLoading ? (
-        <>
+        <div className='Loader'>
           <LineWave
-            height='100'
-            width='100'
+            height='200'
+            width='200'
             color='#4fa94d'
             ariaLabel='line-wave'
             wrapperStyle={{}}
@@ -34,7 +34,7 @@ const SingleCoin = (): JSX.Element => {
             middleLineColor=''
             lastLineColor=''
           />
-        </>
+        </div>
       ) : data ? (
         <>
           <CoinHeader coin={data} />

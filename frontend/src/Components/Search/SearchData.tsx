@@ -39,22 +39,28 @@ const SearchData = () => {
       </div>
       <article
         className={searchCoin.length < 3 ? "panel removePanel" : "panel"}>
-        {error ? (
-          <h3>Oops, something went wrong please refresh again.</h3>
-        ) : isLoading ? (
-          <MagnifyingGlass
-            visible={true}
-            height='80'
-            width='80'
-            ariaLabel='MagnifyingGlass-loading'
-            wrapperStyle={{}}
-            wrapperClass='MagnifyingGlass-wrapper'
-            glassColor='#c0efff'
-            color='#e15b64'
-          />
-        ) : data ? (
-          <div>
-            <ul className='PList'>
+        <div className='PList'>
+          {error ? (
+            <h3>Oops, something went wrong please refresh again.</h3>
+          ) : isLoading ? (
+            <div className='Loader'>
+              <MagnifyingGlass
+                visible={true}
+                height='100'
+                width='100'
+                ariaLabel='MagnifyingGlass-loading'
+                wrapperStyle={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+                wrapperClass='MagnifyingGlass-wrapper'
+                glassColor='#c0efff'
+                color='#e15b64'
+              />
+            </div>
+          ) : data ? (
+            <ul>
               {data?.coins.map((coin) => {
                 return (
                   <li
@@ -79,8 +85,8 @@ const SearchData = () => {
                 );
               })}
             </ul>
-          </div>
-        ) : null}
+          ) : null}
+        </div>
       </article>
     </>
   );

@@ -38,7 +38,6 @@
 
 .menu {
     display: flex;
-    gap: 3rem;
 }
 
 .ulList {
@@ -47,6 +46,7 @@
     justify-content: center;
     align-items: center;
     list-style: none;
+    margin: 0 1.5rem;
 }
 
 .ulList li {
@@ -87,10 +87,10 @@
 
 .PList {
     width: 25vw;
-    height: 90vh;
+    height: 88vh;
     position: absolute;
     right: 13rem;
-    top: 5rem;
+    top: 1.5rem;
     background-color: hsl(180, 100%, 99%);
     z-index: 100;
     border-radius: 1rem;
@@ -101,7 +101,7 @@
 
 .panel {
     position: fixed;
-    top: 0;
+    top: 4rem;
     left: 0;
     height: 100vh;
     width: 100%;
@@ -136,6 +136,11 @@
 
 .Berger {
     display: none;
+}
+
+.dataDiv {
+    width: 250px;
+    height: 100vh;
 }
 
 @media only screen and (max-width: 1100px) {
