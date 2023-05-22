@@ -33,7 +33,6 @@ export const portfolioList = createSlice({
       }
     }
 });
-
 export const { TotalMoney, AssetPrice, AddQuantity } = portfolioList.actions
 
 export default portfolioList.reducer

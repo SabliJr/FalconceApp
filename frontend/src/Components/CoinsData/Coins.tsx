@@ -22,7 +22,12 @@ const CoinsData = (): JSX.Element => {
       {error ? (
         <h3>Oops, something went wrong, please refresh the page again</h3>
       ) : isLoading ? (
-        <div className='Loader'>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}>
           <Dna
             visible={true}
             height='80'

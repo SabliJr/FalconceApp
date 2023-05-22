@@ -21,7 +21,12 @@ const SingleCoin = (): JSX.Element => {
       {error ? (
         <h3>Oops, Something went wrong please refresh again</h3>
       ) : isLoading ? (
-        <div className='Loader'>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}>
           <LineWave
             height='200'
             width='200'

@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import "./Portfolio.css";
 
 import { FaEye } from "react-icons/fa";
-import AddAssets from "../../Components/PortfolioAssets/AddAssets";
+import AddAsset from "../../Components/PortfolioAssets/AddAsset";
 
 const Portfolio: React.FC = () => {
   const [AddingAssets, setAddingAssets] = useState(false);
@@ -51,7 +51,7 @@ const Portfolio: React.FC = () => {
 
         {AddingAssets && (
           <div ref={componentRef}>
-            <AddAssets setAddingAssets={setAddingAssets} />
+            <AddAsset setAddingAssets={setAddingAssets} />
           </div>
         )}
       </main>

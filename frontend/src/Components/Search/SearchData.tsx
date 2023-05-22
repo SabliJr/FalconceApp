@@ -43,7 +43,12 @@ const SearchData = () => {
           {error ? (
             <h3>Oops, something went wrong please refresh again.</h3>
           ) : isLoading ? (
-            <div className='Loader'>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}>
               <MagnifyingGlass
                 visible={true}
                 height='100'
