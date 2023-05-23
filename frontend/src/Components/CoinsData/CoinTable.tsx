@@ -31,7 +31,7 @@ const CoinsTable = ({ coin }: iTable): JSX.Element => {
     isOnList ? dispatch(AddToList(coin)) : dispatch(RemoveFromList(coin));
   };
 
-  //Load the items in the localStorage
+  //Loading up the items from the localStorage
   useEffect(() => {
     const savedList = localStorage.getItem("List");
     if (savedList) {

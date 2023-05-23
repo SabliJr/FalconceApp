@@ -4,6 +4,11 @@
 
 .coinsTable {
     width: 97%;
+    border-collapse: collapse;
+}
+
+.coinsTable thead tr {
+    border-bottom: 1px solid cadetblue;
 }
 
 .tableTitle {
@@ -58,7 +63,8 @@
     background-color: hsla(155, 100%, 82%, 0.829);
     color: hsl(150, 93%, 28%);
     padding: .5rem .3rem;
-    margin: 0 1rem;
+    width: 80%;
+    margin: auto;
     border-radius: .4rem;
     display: flex;
 }
@@ -68,7 +74,8 @@
     color: hsl(0, 93%, 47%);
     padding: .5rem .3rem;
     border-radius: .4rem;
-    margin: 0 1rem;
+    width: 80%;
+    margin: auto;
     display: flex;
 }
 

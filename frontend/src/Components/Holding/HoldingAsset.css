@@ -1,5 +1,5 @@
 .holdingAssetImg {
-    width: 40px;
+    width: 2.5rem;
 }
 
 .assetColumn,
@@ -7,6 +7,7 @@
     display: flex;
     align-items: center;
     gap: .5rem;
+    padding: 0.6rem 0;
 }
 
 .assetColumn div li {
@@ -27,15 +28,53 @@
     font-family: 'IBM Plex Sans', sans-serif;
 }
 
-.holdingsTable {
-    width: 60%;
-    text-align: center;
+.holdingsTable th {
+    color: chocolate;
+    font-size: 1.3rem;
+    font-weight: 700;
+    font-family: 'IBM Plex Sans', sans-serif;
+    padding: .5rem 0;
+    border-bottom: 1.5px solid cadetblue;
 }
 
 .holdingRows {
     margin: 2rem;
 }
 
-.holdingsTable tr {
-    margin: 2rem;
+.holdingRows {
+    border: 1px solid rgb(162, 162, 162);
+}
+
+#assetNameH {
+    text-align: left;
+    padding-left: 3rem;
+}
+
+.holdingsTable {
+    width: 70%;
+    margin-left: 5rem;
+    width: 80%;
+    text-align: center;
+}
+
+.AssetDown {
+    background-color: hsl(0, 80%, 88%);
+    color: hsl(0, 93%, 47%);
+    padding: .5rem .3rem;
+    border-radius: .4rem;
+    width: 20%;
+    text-align: center;
+    margin: auto;
+    display: flex;
+}
+
+.AssetUp {
+    background-color: hsla(155, 100%, 82%, 0.829);
+    color: hsl(150, 93%, 28%);
+    padding: .5rem .3rem;
+    width: 50%;
+    margin: auto;
+    border-radius: .4rem;
+    text-align: center;
+    display: flex;
 }
