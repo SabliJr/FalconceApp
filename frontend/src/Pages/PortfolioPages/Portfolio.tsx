@@ -5,6 +5,7 @@ import { FaEye } from "react-icons/fa";
 import AddAsset from "../../Components/PortfolioAssets/AddAssets";
 import { useSelector } from "react-redux";
 import { RootState } from "../../Redux/Store/store";
+import HoldingAsset from "../../Components/Holding/HoldingAsset";
 
 const Portfolio: React.FC = () => {
   const [AddingAssets, setAddingAssets] = useState(false);
@@ -13,6 +14,9 @@ const Portfolio: React.FC = () => {
 
   const theTotalBalance = useSelector(
     (state: RootState) => state.PortfolioStore?.totalSpent
+  );
+  const HoldingList = useSelector(
+    (state: RootState) => state.PortfolioStore.assets
   );
 
   useEffect(() => {
@@ -59,6 +63,15 @@ const Portfolio: React.FC = () => {
           <div ref={componentRef}>
             <AddAsset setAddingAssets={setAddingAssets} />
           </div>
+        )}
+
+        {HoldingList.length > 0 ? (
+          <HoldingAsset />
+        ) : (
+          <h3 className='noHoldings'>
+            Your portfolio is empty add some assets to test the full
+            functionality.
+          </h3>
         )}
       </main>
     </>

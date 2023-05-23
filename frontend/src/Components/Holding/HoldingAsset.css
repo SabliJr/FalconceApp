@@ -1,0 +1,41 @@
+.holdingAssetImg {
+    width: 40px;
+}
+
+.assetColumn,
+.assetColumn div {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.assetColumn div li {
+    list-style: none;
+}
+
+.assetColumn div li:first-child {
+    font-size: .8rem;
+    font-weight: bold;
+    color: rgba(49, 67, 83, 0.88);
+}
+
+.assetColumn div li:last-child {
+    font-size: .8rem;
+    font-style: oblique;
+    color: rgba(63, 81, 98, 0.88);
+    font-weight: 300;
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.holdingsTable {
+    width: 60%;
+    text-align: center;
+}
+
+.holdingRows {
+    margin: 2rem;
+}
+
+.holdingsTable tr {
+    margin: 2rem;
+}

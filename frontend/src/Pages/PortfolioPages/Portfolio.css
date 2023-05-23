@@ -60,6 +60,19 @@
     color: rgb(32, 70, 119);
 }
 
+.noHoldings {
+    text-align: center;
+    color: rgba(24, 33, 41, 0.88);
+    font-size: 1.8rem;
+    width: 70%;
+    margin: auto;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 700;
+    font-style: italic;
+    line-height: 1.5;
+    letter-spacing: 1px;
+}
+
 @media only screen and (max-width: 1024px) {
     .portfolio {
         margin: 5rem;
