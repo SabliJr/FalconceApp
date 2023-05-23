@@ -2,12 +2,18 @@ import { useEffect, useRef, useState } from "react";
 import "./Portfolio.css";
 
 import { FaEye } from "react-icons/fa";
-import AddAsset from "../../Components/PortfolioAssets/AddAsset";
+import AddAsset from "../../Components/PortfolioAssets/AddAssets";
+import { useSelector } from "react-redux";
+import { RootState } from "../../Redux/Store/store";
 
 const Portfolio: React.FC = () => {
   const [AddingAssets, setAddingAssets] = useState(false);
   const btnRef = useRef<HTMLButtonElement>(null);
   const componentRef = useRef<HTMLDivElement>(null);
+
+  const theTotalBalance = useSelector(
+    (state: RootState) => state.PortfolioStore?.totalSpent
+  );
 
   useEffect(() => {
     let closeModel = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -34,7 +40,7 @@ const Portfolio: React.FC = () => {
             <p>
               Current Balance <FaEye />
             </p>
-            <h3>$10,000.035</h3>
+            <h3>${theTotalBalance.toLocaleString()}</h3>
             <span>
               + $1,000 <span>24h</span>
             </span>
