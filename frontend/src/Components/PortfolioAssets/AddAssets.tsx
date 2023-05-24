@@ -7,11 +7,7 @@ import { RiCloseFill } from "react-icons/ri";
 import "./AssetsForm.css";
 
 //Redux
-import {
-  AddCoins,
-  TotalMoney,
-  AddQuantity,
-} from "../../Redux/Features/PortfolioStore";
+import { AddCoins, TotalMoney } from "../../Redux/Features/PortfolioStore";
 import { useDispatch } from "react-redux";
 import { AnyAction } from "@reduxjs/toolkit";
 interface iAsset {
@@ -48,7 +44,7 @@ const AddAsset: React.FC<iProps> = (props) => {
   let calculateValues = (coin?: iCoins, quantity?: string) => {
     const theTotal =
       (quantity as string)?.length > 0
-        ? (Number(quantity) as number) * (coin?.current_price as number)
+        ? Number(quantity) * (coin?.current_price as number)
         : null;
     setTotalSpent(theTotal as number);
   };
@@ -65,10 +61,19 @@ const AddAsset: React.FC<iProps> = (props) => {
   //Adding to Redux store
   let addToPortfolio = (e: React.MouseEvent, coin: iCoins) => {
     e.preventDefault();
-    const action: AnyAction = AddCoins(coin as iCoins);
+    const parsedQuantity = Number(quantity);
+    let sumPayed = Number(quantity) * coin?.current_price;
+
+    const action: AnyAction = AddCoins({
+      ...coin,
+      quantity: parsedQuantity,
+      id: coin.id,
+      totalPayed: sumPayed,
+    });
     dispatch(action);
     dispatch(TotalMoney(totalSpent));
-    dispatch(AddQuantity(quantity));
+    // dispatch(AddQuantity(Number(quantity)));
+    // dispatch(AddCoins)
     setChoose(false);
     props.setAddingAssets(false);
   };

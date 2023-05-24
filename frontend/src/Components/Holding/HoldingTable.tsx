@@ -11,9 +11,10 @@ interface iTable {
 }
 
 const HoldingTable = ({ coin }: iTable): JSX.Element => {
-  const HoldingQuantity = useSelector(
-    (state: RootState) => state.PortfolioStore.quantity
+  const HoldingQuantity = useSelector((state: RootState) =>
+    state.PortfolioStore.numbers.map((QtyNum) => QtyNum.quantity)
   );
+
 
   return (
     <>

@@ -21,7 +21,7 @@ const HoldingAssets = (): JSX.Element => {
         </thead>
         <tbody>
           {HoldingList?.map((coin) => (
-            <HoldingTable coin={coin} />
+            <HoldingTable coin={coin} key={coin.id} />
           ))}
         </tbody>
       </table>
