@@ -15,8 +15,8 @@ const Portfolio: React.FC = () => {
   const theTotalBalance = useSelector(
     (state: RootState) => state.PortfolioStore?.totalSpent
   );
-  const HoldingList = useSelector(
-    (state: RootState) => state.PortfolioStore.assets
+  const HoldingList = useSelector((state: RootState) =>
+    state.PortfolioStore.HoldingStatus.map((f) => f.assets)
   );
 
   useEffect(() => {
@@ -42,7 +42,7 @@ const Portfolio: React.FC = () => {
         <div className='balance'>
           <div className='balanceText'>
             <p>
-              Current Balance <FaEye />
+              Total Balance <FaEye />
             </p>
             <h3>${theTotalBalance.toLocaleString()}</h3>
             <span>

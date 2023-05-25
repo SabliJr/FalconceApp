@@ -4,8 +4,8 @@ import "./HoldingAsset.css";
 import HoldingTable from "./HoldingTable";
 
 const HoldingAssets = (): JSX.Element => {
-  const assetsList = useSelector(
-    (state: RootState) => state.PortfolioStore.HoldingStatus.assets
+  const assetsList = useSelector((state: RootState) =>
+    state.PortfolioStore.HoldingStatus.map((f) => f.assets)
   );
 
   return (
@@ -17,10 +17,11 @@ const HoldingAssets = (): JSX.Element => {
             <th>Price</th>
             <th>24H</th>
             <th>Holding</th>
+            <th>Balance</th>
           </tr>
         </thead>
         <tbody>
-          {assetsList?.map((coin) => (
+          {assetsList?.slice(1).map((coin) => (
             <HoldingTable coin={coin} key={coin.id} />
           ))}
         </tbody>

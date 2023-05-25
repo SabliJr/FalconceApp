@@ -11,15 +11,13 @@ interface iTable {
 }
 
 const HoldingTable = ({ coin }: iTable): JSX.Element => {
-  // const HoldingQuantity = useSelector((state: RootState) =>
-  //   state.PortfolioStore.numbers.map((QtyNum) => QtyNum.quantity)
-  // );
-
-  const HoldingQuantity = useSelector(
-    (state: RootState) => state.PortfolioStore.HoldingStatus.quantity
+  const holdingAsset = useSelector((state: RootState) =>
+    state.PortfolioStore.HoldingStatus.find((asset) => asset.id === coin.id)
   );
 
-  console.log(HoldingQuantity);
+  const holdingQuantity = holdingAsset ? holdingAsset.quantity : null;
+  const holdingTotalPayed = holdingAsset ? holdingAsset.totalPayed : null;
+  console.log(holdingQuantity);
 
   return (
     <>
@@ -28,10 +26,10 @@ const HoldingTable = ({ coin }: iTable): JSX.Element => {
           <img src={coin.image} alt='assetImage' className='holdingAssetImg' />
           <div>
             <li> {coin.name}</li>
-            <li> {coin.symbol.toUpperCase()}</li>
+            <li> {coin.symbol?.toUpperCase()}</li>
           </div>
         </td>
-        <td>${coin.current_price.toLocaleString()}</td>
+        <td>${coin.current_price?.toLocaleString()}</td>
         <td>
           <div
             className={
@@ -42,10 +40,11 @@ const HoldingTable = ({ coin }: iTable): JSX.Element => {
             ) : (
               <RiArrowDropUpFill className='priceIcon' />
             )}
-            {coin.price_change_percentage_24h.toFixed(4)}%
+            {coin.price_change_percentage_24h?.toFixed(4)}%
           </div>
         </td>
-        <td>{HoldingQuantity}</td>
+        <td>{holdingQuantity}</td>
+        <td>${holdingTotalPayed?.toLocaleString()}</td>
       </tr>
     </>
   );

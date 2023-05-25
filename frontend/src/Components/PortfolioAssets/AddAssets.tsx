@@ -65,15 +65,13 @@ const AddAsset: React.FC<iProps> = (props) => {
     let sumPayed = Number(quantity) * coin?.current_price;
 
     const action: AnyAction = AddCoins({
-      ...coin,
+      assets: coin,
       quantity: parsedQuantity,
       id: coin.id,
       totalPayed: sumPayed,
     });
     dispatch(action);
     dispatch(TotalMoney(totalSpent));
-    // dispatch(AddQuantity(Number(quantity)));
-    // dispatch(AddCoins)
     setChoose(false);
     props.setAddingAssets(false);
   };
