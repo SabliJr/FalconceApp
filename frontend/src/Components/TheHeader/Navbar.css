@@ -150,9 +150,10 @@
 
     .PList {
         width: 45vw;
+        height: 85vh;
         position: absolute;
-        right: 3rem;
-        top: 5rem;
+        right: 1.5rem;
+        top: 1.5rem;
         background-color: hsl(180, 100%, 99%);
         z-index: 100;
         border-radius: 1.2rem;
@@ -183,7 +184,11 @@
         }
 
         .isOpen {
-            right: .5rem;
+            right: -.5rem;
+        }
+
+        .menu {
+            gap: .5rem;
         }
 
         @media only screen and (max-width: 700px) {
@@ -220,13 +225,10 @@
 
             .PList {
                 width: 90vw;
-            }
-
-            .PList {
-                width: 90vw;
+                height: 85vh;
                 position: absolute;
-                right: 1rem;
-                top: 5rem;
+                right: 1.5rem;
+                top: 1.5rem;
                 background-color: hsl(180, 100%, 99%);
                 z-index: 100;
                 border-radius: 1.2rem;

@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import TheNav from "./Components/TheHeader/TheNav";
 import TheHomePage from "./Pages/TheHomePage";
 import CoinPage from "./Pages/CoinPage";
-import WatchList from "./Pages/WatchList";
+import WatchList from "./Pages/WatchingAssets/WatchList";
 import Portfolio from "./Pages/PortfolioPages/Portfolio";
 import { Dna } from "react-loader-spinner";
 import OhNoImg from "../src/Assets/oh-no.png";

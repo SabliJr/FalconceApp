@@ -37,7 +37,13 @@ const Portfolio: React.FC = () => {
   return (
     <>
       <main className='portfolio'>
-        <h2>Create your portfolio and see how your assets perform.</h2>
+        <h2>Make a portfolio</h2>
+        <p>
+          Create your portfolio and track the changes on your balance, plus,
+          your gains and losses in 24h, you can add your assets from the button
+          below `Add Assets`. Just select your coins and put in the quantity,
+          voilà, you have your portfolio.
+        </p>
 
         <div className='balance'>
           <div className='balanceText'>
@@ -46,7 +52,7 @@ const Portfolio: React.FC = () => {
             </p>
             <h3>${theTotalBalance.toLocaleString()}</h3>
             <span>
-              + $1,000 <span>24h</span>
+              + $0 <span>24h</span>
             </span>
           </div>
           <div>
@@ -65,7 +71,7 @@ const Portfolio: React.FC = () => {
           </div>
         )}
 
-        {HoldingList.length > 0 ? (
+        {HoldingList.length > 1 ? (
           <HoldingAsset />
         ) : (
           <h3 className='noHoldings'>

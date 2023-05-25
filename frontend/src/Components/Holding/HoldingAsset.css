@@ -51,7 +51,6 @@
 }
 
 .holdingsTable {
-    width: 70%;
     margin-left: 5rem;
     width: 80%;
     text-align: center;
@@ -62,7 +61,7 @@
     color: hsl(0, 93%, 47%);
     padding: .5rem .3rem;
     border-radius: .4rem;
-    width: 45%;
+    width: 60%;
     text-align: center;
     margin: auto;
     display: flex;
@@ -72,9 +71,80 @@
     background-color: hsla(155, 100%, 82%, 0.829);
     color: hsl(150, 93%, 28%);
     padding: .5rem .3rem;
-    width: 45%;
+    width: 60%;
     margin: auto;
     border-radius: .4rem;
     text-align: center;
     display: flex;
+}
+
+.assetPriceIcon {
+    font-size: 1.3rem;
+    align-self: center;
+}
+
+@media only screen and (max-width: 900px) {
+
+    .AssetUp,
+    .AssetDown {
+        width: 80%;
+        align-items: center;
+        border-radius: 0.2rem;
+        margin: 0 0.4rem;
+        padding: 0.1rem;
+    }
+
+    .holdingsTable {
+        width: 90%;
+        margin: auto;
+    }
+
+    @media only screen and (max-width: 600px) {
+        .holdingAssetImg {
+            width: 2rem;
+        }
+
+        .AssetUp,
+        .AssetDown {
+            width: 88%;
+            font-size: .7rem;
+            align-items: center;
+            border-radius: 0.2rem;
+            margin: 0 0.4rem;
+            padding: 0.1rem;
+
+        }
+
+        .holdingsTable {
+            margin: auto;
+            width: 100%;
+            overflow: clip;
+        }
+
+        .assetPriceIcon {
+            font-size: 1.1rem;
+            align-self: center;
+        }
+
+        .holdingsTable th {
+            font-size: 1rem;
+            font-weight: 500;
+            padding: .3rem 0;
+        }
+
+        .removeTheRow {
+            display: none;
+        }
+
+        .assetColumn,
+        .assetColumn div {
+            gap: .3rem;
+            padding: 0.5rem 0;
+        }
+
+        .assetPrice,
+        .assetHolding {
+            font-size: .7rem;
+        }
+    }
 }

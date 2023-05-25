@@ -75,6 +75,18 @@ const AddAsset: React.FC<iProps> = (props) => {
     setChoose(false);
     props.setAddingAssets(false);
   };
+  console.log(assetName.coinName);
+
+  const filteredArray = data?.filter(
+    (m) =>
+      m.id === assetName.coinName ||
+      m.name.toLowerCase().includes(assetName.coinName as string)
+  );
+  const searchValue =
+    (assetName.coinName as string)?.length > 2
+      ? filteredArray
+      : data?.slice(0, 100);
+  console.log(searchValue);
 
   return (
     <article className='theFields'>
@@ -154,7 +166,7 @@ const AddAsset: React.FC<iProps> = (props) => {
               </div>
             ) : data ? (
               <ul>
-                {data.slice(0, 70).map((coin) => {
+                {searchValue?.map((coin) => {
                   return (
                     <li
                       key={coin.id}

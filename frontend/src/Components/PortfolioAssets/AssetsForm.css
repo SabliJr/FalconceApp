@@ -7,7 +7,7 @@
     background-color: #fff;
     border-radius: .6rem;
     position: absolute;
-    top: 50%;
+    top: 30%;
     right: 50%;
     transform: translateX(50%);
     z-index: 99;
@@ -72,13 +72,13 @@
 }
 
 .backDrop {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     height: 100vh;
     width: 100%;
     background-color: #26272b79;
-    z-index: 99;
+    /* z-index: 99; */
 }
 
 .headSpan {

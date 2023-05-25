@@ -17,7 +17,7 @@ const HoldingAssets = (): JSX.Element => {
             <th>Price</th>
             <th>24H</th>
             <th>Holding</th>
-            <th>Balance</th>
+            <th className='removeTheRow'>Balance</th>
           </tr>
         </thead>
         <tbody>

@@ -1,5 +1,6 @@
 import "./HoldingAsset.css";
 import "../CoinsData/CoinsData.css";
+import "../PortfolioAssets/AssetsForm.css";
 import { iCoins } from "../../Types/iCoinsData";
 
 import { useSelector } from "react-redux";
@@ -29,22 +30,22 @@ const HoldingTable = ({ coin }: iTable): JSX.Element => {
             <li> {coin.symbol?.toUpperCase()}</li>
           </div>
         </td>
-        <td>${coin.current_price?.toLocaleString()}</td>
+        <td className='assetPrice'>${coin.current_price?.toLocaleString()}</td>
         <td>
           <div
             className={
               coin.price_change_percentage_24h < 0 ? "AssetDown" : "AssetUp"
             }>
             {coin.price_change_percentage_24h < 0 ? (
-              <RiArrowDropDownFill className='priceIcon' />
+              <RiArrowDropDownFill className='assetPriceIcon' />
             ) : (
-              <RiArrowDropUpFill className='priceIcon' />
+              <RiArrowDropUpFill className='assetPriceIcon' />
             )}
-            {coin.price_change_percentage_24h?.toFixed(4)}%
+            {coin.price_change_percentage_24h?.toFixed(3)}%
           </div>
         </td>
-        <td>{holdingQuantity}</td>
-        <td>${holdingTotalPayed?.toLocaleString()}</td>
+        <td className='assetHolding'>{holdingQuantity}</td>
+        <td className='removeTheRow'>${holdingTotalPayed?.toLocaleString()}</td>
       </tr>
     </>
   );
