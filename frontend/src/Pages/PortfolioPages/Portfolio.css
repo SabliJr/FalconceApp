@@ -1,14 +1,26 @@
 .portfolio {
     max-width: 1124px;
-    margin: 5rem auto;
+    margin: 4rem auto;
     position: relative;
 }
 
 .portfolio h2 {
     color: chocolate;
-    font-size: 1.6rem;
-    font-weight: bold;
+    font-size: 2.3rem;
     letter-spacing: 1px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 700;
+    margin: 1rem 0;
+}
+
+.portfolio>p {
+    color: #303952;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 500;
+    width: 89%;
+    line-height: 1.7;
+    letter-spacing: 1px;
+    font-size: 1.08rem;
 }
 
 .balance {
@@ -19,13 +31,14 @@
 }
 
 .addAssetsBtn {
-    background-color: rgb(32, 70, 119);
+    background-color: chocolate;
     color: white;
-    font-size: 1.5rem;
-    padding: .3rem .5rem;
+    font-size: 1.3rem;
+    padding: .6rem .5rem;
     border: transparent;
     border-radius: .6rem;
     cursor: pointer;
+    font-weight: bold;
 }
 
 .balanceText p {
@@ -60,14 +73,27 @@
     color: rgb(32, 70, 119);
 }
 
+.noHoldings {
+    text-align: center;
+    color: rgba(24, 33, 41, 0.88);
+    font-size: 1.8rem;
+    width: 70%;
+    margin: auto;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 700;
+    font-style: italic;
+    line-height: 1.5;
+    letter-spacing: 1px;
+}
+
 @media only screen and (max-width: 1024px) {
     .portfolio {
         margin: 5rem;
     }
 
-    @media only screen and (max-width: 800px) {
+    @media only screen and (max-width: 900px) {
         .portfolio {
-            margin: 5rem 1.5rem;
+            margin: 3rem 1.5rem;
         }
 
         @media only screen and (max-width: 600px) {
@@ -95,9 +121,29 @@
             }
 
             .portfolio h2 {
-                font-size: 1.2rem;
+                font-size: 1.5rem;
+                margin: .8rem 0;
             }
 
+            .balance {
+                margin: 3rem 0;
+            }
+
+            .portfolio {
+                margin: 3rem .8rem;
+            }
+
+            .noHoldings {
+                font-size: 1.3rem;
+                width: 90%;
+                font-weight: 600;
+            }
+
+            .portfolio>p {
+                width: 97%;
+                line-height: 1.6;
+                font-size: 1rem;
+            }
         }
     }
 }

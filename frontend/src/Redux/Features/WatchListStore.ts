@@ -10,8 +10,6 @@ const storedList = localStorage.getItem("List")
 const initialList = storedList !== null
   ? JSON.parse(storedList as string) : [];
 
-
-
 const initialState: ListState = {
     laList: initialList,
 }

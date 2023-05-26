@@ -7,34 +7,42 @@
     background-color: #fff;
     border-radius: .6rem;
     position: absolute;
-    top: 50%;
+    top: 30%;
     right: 50%;
     transform: translateX(50%);
     z-index: 99;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
-.theFields h2 {
-    color: rgba(24, 33, 41, 0.88);
+.suggestion {
+    overflow: scroll;
 }
 
-.coinSelection {
-    display: flex;
-    flex-direction: column;
+.theFields h2 {
+    color: rgba(24, 33, 41, 0.88);
 }
 
 .quantity {
     display: flex;
 }
 
-.coinSelection input,
+.coinSelection input {
+    width: 100%;
+    height: 2.3rem;
+    font-size: 1rem;
+    align-items: center;
+    border: none;
+    padding: .8rem;
+    border-radius: .5rem;
+    padding-left: 2.5rem;
+}
+
 .quantity input {
     width: 100%;
     margin: .5rem 0;
     height: 2rem;
     padding: .3rem;
     border-radius: .4rem;
-    border: 1px solid cadetblue;
 }
 
 .totalMoney {
@@ -64,13 +72,13 @@
 }
 
 .backDrop {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     height: 100vh;
     width: 100%;
     background-color: #26272b79;
-    z-index: 99;
+    /* z-index: 99; */
 }
 
 .headSpan {
@@ -83,12 +91,65 @@
     cursor: pointer;
 }
 
+.assetImg {
+    width: 30px;
+}
+
+.assetNameDiv {
+    display: flex;
+    align-items: center;
+    gap: .3rem;
+}
+
+.assetName {
+    font-size: 1rem;
+    font-weight: bold;
+    color: rgba(24, 33, 41, 0.88);
+}
+
+.assetSymbol {
+    font-size: .8rem;
+    font-style: oblique;
+    color: rgba(63, 81, 98, 0.88);
+}
+
+.assetsList {
+    display: flex;
+    list-style: none;
+    gap: .5rem;
+    margin: 1rem;
+    cursor: pointer;
+}
+
+.chooseAsset {
+    display: flex;
+    border: 1px solid cadetblue;
+    border-radius: .4rem;
+    margin: .5rem 0;
+    position: relative;
+}
+
+.chooseAssetImg {
+    position: absolute;
+    left: .2rem;
+    top: .2rem;
+    width: 30px;
+}
+
+.assetClose {
+    font-size: .8rem;
+    cursor: pointer;
+    position: absolute;
+    right: .3rem;
+    top: .8rem;
+}
+
 @media only screen and (max-width: 1024px) {
     @media only screen and (max-width: 800px) {
         @media only screen and (max-width: 550px) {
             .theFields {
                 width: 20rem;
-                height: 27rem;
+                height: 30rem;
                 padding: 1rem;
                 top: 2%;
             }

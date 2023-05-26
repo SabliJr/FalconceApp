@@ -1,39 +1,52 @@
-import { createSlice } from "@reduxjs/toolkit";
-
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { iCoins } from "../../Types/iCoinsData";
 
+interface iAsset {
+  assets: iCoins;
+  id: string;
+  quantity: number;
+  totalPayed: number;
+}
+
 interface iPortfolio {
-    assets: iCoins[];
-    totalSpent: number;
-    assetPrice: number;
-    quantity: number;
+  totalSpent: number;
+  HoldingStatus: iAsset[];
 }
 
 const initialState: iPortfolio = {
-    assets: [],
-    totalSpent: 0,
-    assetPrice: 0,
-    quantity: 0,
-}
+  totalSpent: 0,
+  HoldingStatus: [{
+      assets: {} as iCoins,
+      id: "",
+      quantity: 0,
+      totalPayed: 0,
+    },
+  ],
+};
 
 export const portfolioList = createSlice({
-    name: 'portfolio',
-    initialState,
-    reducers: {
-      AssetPrice: (state, action) => {
-        state.assetPrice += action.payload.current_price
-      },
-      AddQuantity: (state, action) => {
-        state.quantity += action.payload
-      },
-      TotalMoney: (state) => {
-        state.assets.forEach((x) => {
-          state.totalSpent += x.current_price * state.quantity
-        })
+  name: "portfolio",
+  initialState,
+  reducers: {
+    TotalMoney: (state, action: PayloadAction<number>) => {
+      state.totalSpent += action.payload;
+    },
+
+    AddCoins: (state, action: PayloadAction<iAsset>) => {
+      const makeHoldings = state.HoldingStatus.find(
+        (c) => c.assets.id === action.payload.assets.id
+      );
+
+      if (!makeHoldings) {
+        state.HoldingStatus.push(action.payload);
+      } else {
+        makeHoldings.quantity += action.payload.quantity;
+        makeHoldings.totalPayed += action.payload.totalPayed;
       }
-    }
+    },
+  },
 });
 
-export const { TotalMoney, AssetPrice, AddQuantity } = portfolioList.actions
+export const { TotalMoney, AddCoins } = portfolioList.actions;
 
-export default portfolioList.reducer
+export default portfolioList.reducer;

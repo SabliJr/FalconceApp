@@ -58,7 +58,6 @@ const NewChart = ({ data, isActive, id }: iData): JSX.Element => {
       window.removeEventListener("resize", reSizing);
     };
   }, []);
-  console.log(isSized);
 
   const options: ChartOptions<"line"> = {
     responsive: true,
