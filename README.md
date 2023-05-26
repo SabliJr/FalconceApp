@@ -6,10 +6,10 @@ The site is live, the frontend is hosted on Netlify and the backend is on render
 
 My goal in building this was to simulate a professional work environment:
 
-1- This application is somewhat similar to a lot of Crypto prices tracking apps.
-2- I used git branches, pushes, and pull requests to practice it.
-3- I used Redux to fetch data and manage them.
-4- I used Node Js for the backend as I plan to become a full-stack dev, but I'm focused on the front end now. 
+- This application is somewhat similar to a lot of Crypto prices tracking apps.
+- I used git branches, pushes, and pull requests to practice it.
+- I used Redux to fetch data and manage them.
+- I used Node Js for the backend as I plan to become a full-stack dev, but I'm focused on the front end now. 
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
 # Getting Started with Create React App
