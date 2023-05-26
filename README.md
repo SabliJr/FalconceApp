@@ -1,3 +1,17 @@
+Falconce is a crypto prices web app where you can check the last-minute prices of cryptocurrencies or you can search for any active coin in the market. 
+
+I built this app with two APIs from the top crypto data providers CoinMarketCap & CoinGecko. I had to use both of them to get around the problem of the limitation of data of free tiers. 
+
+The site is live, the frontend is hosted on Netlify and the backend is on render. You can visit it here: https://falconce.netlify.app
+
+My goal in building this was to simulate a professional work environment:
+
+1- This application is somewhat similar to a lot of Crypto prices tracking apps.
+2- I used git branches, pushes, and pull requests to practice it.
+3- I used Redux to fetch data and manage them.
+4- I used Node Js for the backend as I plan to become a full-stack dev, but I'm focused on the front end now. 
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
