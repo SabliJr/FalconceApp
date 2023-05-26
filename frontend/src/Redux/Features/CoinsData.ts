@@ -5,7 +5,7 @@ import { iStatus } from "../../Types/interfaces";
 export const CoinsData = createApi({
   reducerPath: "CoinsData",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:8000",
+    baseUrl: "https://falconce.onrender.com",
   }),
   endpoints: (builder) => ({
     getCryptoStatus: builder.query<iStatus[], void>({
