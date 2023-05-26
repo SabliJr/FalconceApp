@@ -1,6 +1,5 @@
 const PORT = 8000;
-
-import express, {Request, Response} from 'express';
+import express, {Request, Response} from 'express' ;
 import cors from 'cors';
 import dotenv from 'dotenv';
 import axios from "axios";
@@ -108,7 +107,7 @@ app.get("/coin", (req, resp) => {
     });
 });
 
-app.get("/three-months", (req: Request, res: Response) => {
+app.get("/three-months", (req: express.Request, res: express.Response) => {
   const symbol = req.query.symbol;
 
   const options = {
