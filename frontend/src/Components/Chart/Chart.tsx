@@ -1,7 +1,33 @@
-import { Area } from "@ant-design/plots";
-import moment from "moment";
 import { iChartData } from "../../Types/iCoinsData";
+import "chartjs-adapter-moment";
 import millify from "millify";
+import "./Chart.css";
+
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+  ChartOptions,
+  TimeScale,
+} from "chart.js";
+import { Line } from "react-chartjs-2";
+import { useEffect, useState } from "react";
+
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+  TimeScale
+);
 
 export type iValues = {
   [key: number]: number;
@@ -13,63 +39,87 @@ interface iData {
     timeBtn: string;
     capitalBtn: string;
   };
+  id: string | undefined;
 }
 
-interface iStyle {
-  data: Record<number, number>[];
-  xField: string;
-  yField: string;
-  // xAxis: {
-  //   range: [number, number];
-  //   tickCount: boolean;
-  // };
-  areaStyle: () => {
-    fill: string;
-  };
-  smooth?: boolean;
-  animation: boolean;
-  Legend: boolean;
-}
+const NewChart = ({ data, isActive, id }: iData): JSX.Element => {
+  const [isSized, setSize] = useState<number>(window.innerWidth);
+  let isData = isActive.capitalBtn === "Price" ? data.prices : data.market_caps;
 
-const DemoArea = ({ data, isActive }: iData) => {
-  const priceData =
-    data?.prices.map((value: iValues) => ({
-      date:
-        isActive.timeBtn === "3M"
-          ? moment(value[0]).format("MMM DD")
-          : value[0],
-      price: `$ ${millify(value[1])}`,
-    })) || [];
+  useEffect(() => {
+    const reSizing = () => {
+      setSize(window.innerWidth);
+      console.log(window.innerWidth);
+    };
 
-  const marketCapData =
-    data?.market_caps.map((x: iValues) => ({
-      date: isActive.timeBtn === "3M" ? moment(x[0]).format("MMM DD") : x[0],
-      marketCap: `$ ${millify(x[1])}`,
-    })) || [];
+    window.addEventListener("resize", reSizing);
 
-  let isData = isActive.capitalBtn === "Price" ? priceData : marketCapData;
-  let isPrice = isActive.capitalBtn === "Price" ? "price" : "marketCap";
+    return () => {
+      window.removeEventListener("resize", reSizing);
+    };
+  }, []);
+  console.log(isSized);
 
-  console.log(priceData);
-  const config: iStyle = {
-    data: isData,
-    xField: "date",
-    yField: isPrice,
-    // xAxis: {
-    //   range: [0, 1],
-    //   tickCount: true,
-    // },
-    areaStyle: () => {
-      return {
-        fill: "l(270) 0:#ffffff 0.5:#7ec2f3 1:#1890ff",
-      };
+  const options: ChartOptions<"line"> = {
+    responsive: true,
+    maintainAspectRatio: true,
+
+    scales: {
+      x: {
+        type: "time",
+        grid: {
+          display: false,
+        },
+      },
+
+      y: {
+        ticks: {
+          color: "rgba(32, 70, 119)",
+          padding: isSized <= 600 ? 1 : isSized <= 800 ? 10 : 20,
+          font: {
+            size: isSized <= 600 ? 8 : 14,
+          },
+          callback: function (label, index, labels) {
+            return isActive.capitalBtn === "Price"
+              ? `$${label.toLocaleString()}`
+              : `$${millify(label as number)}`;
+          },
+        },
+        grid: {
+          display: false,
+        },
+      },
     },
-    animation: true,
-    smooth: true,
-    Legend: false,
+    elements: {
+      point: {
+        radius: 0.5,
+      },
+    },
+    plugins: {
+      legend: {
+        display: false,
+      },
+    },
   };
 
-  return <Area {...config} tooltip={false} />;
+  return (
+    <div className='chart-container'>
+      <Line
+        data={{
+          labels: isData.map((coin: iValues) => coin[0]),
+          datasets: [
+            {
+              data: isData.map((coin: iValues) => coin[1]),
+              label: `${id}`,
+              borderColor: "#1890ff",
+              tension: 0.35,
+            },
+          ],
+        }}
+        options={options}
+      />
+    </div>
+  );
 };
 
-export default DemoArea;
+export default NewChart;

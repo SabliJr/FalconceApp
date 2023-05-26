@@ -20,10 +20,9 @@ const CoinChart: React.FC = (props) => {
   const { data, isLoading, error } = useGetChartDataQuery({
     coinId: params,
     period: periodData,
-    timeStamp: isActive.timeBtn === "3M" ? "daily" : null,
+    timeStamp:
+      isActive.timeBtn === "3M" || isActive.timeBtn === "1M" ? "daily" : null,
   });
-
-  // console.log(data);
 
   useEffect(() => {
     let Fetching = () => {
@@ -89,7 +88,7 @@ const CoinChart: React.FC = (props) => {
               ))}
             </div>
           </div>
-          <Chart data={data} isActive={isActive} />
+          <Chart data={data} isActive={isActive} id={id} />
         </>
       ) : null}
     </section>

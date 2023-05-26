@@ -22,7 +22,7 @@ const CoinsData = (): JSX.Element => {
       {error ? (
         <h3>Oops, something went wrong, please refresh the page again</h3>
       ) : isLoading ? (
-        <>
+        <div className='Loader'>
           <Dna
             visible={true}
             height='80'
@@ -31,11 +31,11 @@ const CoinsData = (): JSX.Element => {
             wrapperStyle={{}}
             wrapperClass='dna-wrapper'
           />
-        </>
+        </div>
       ) : data ? (
         <main className='tableMain'>
           <h2 className='tableTitle'>
-            The Top 250 Active Cryptocurrencies In the Market
+            Top 250 Active Cryptocurrencies In the Market
           </h2>
           <table className='coinsTable'>
             <thead className='stickTable'>

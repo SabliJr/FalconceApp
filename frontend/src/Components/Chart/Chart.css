@@ -1,5 +1,5 @@
 .chart {
-    margin: 5rem 0;
+    margin: 2rem 0;
 }
 
 .btnDiv {
@@ -25,4 +25,28 @@
 
 .activeBtn {
     background-color: #f6f7f8e2;
+}
+
+.chart-container {
+    width: 95%;
+    height: 45%;
+    position: relative;
+    margin: auto;
+}
+
+@media only screen and (max-width: 900px) {
+    .chart-container {
+        height: 40vh;
+    }
+
+    .chart {
+        margin: 2rem 0 0;
+    }
+
+    @media only screen and (max-width: 600px) {
+
+        .chart-container {
+            height: auto;
+        }
+    }
 }
