@@ -1,60 +1,60 @@
 .Status_div {
-    margin: 4rem 0 3rem;
+  margin: 4rem 0 3rem;
 }
 
 .Status_div h2 {
-    margin-bottom: 1rem;
-    color: rgb(32, 70, 119);
-    font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: rgb(32, 70, 119);
+  font-size: 1.8rem;
 }
 
 .statusText {
-    line-height: 1.5;
-    font-weight: 600;
-    font-size: 1rem;
-    color: rgba(51, 69, 86, 0.88);
-    letter-spacing: .5px;
+  line-height: 1.5;
+  font-weight: 600;
+  font-size: 1rem;
+  color: rgba(51, 69, 86, 0.88);
+  letter-spacing: 0.5px;
 }
 
 .Status_div span {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 .statusUp {
-    color: hsl(150, 93%, 28%);
-    display: inline-block;
+  color: hsl(150, 93%, 28%);
+  display: inline-block;
 }
 
 .statusDown {
-    color: hsl(0, 93%, 47%);
-    display: inline-block;
-    text-align: center;
+  color: hsl(0, 93%, 47%);
+  display: inline-block;
+  text-align: center;
 }
 
 .statusIcon {
-    font-size: 1.3rem;
-    align-items: center;
-    vertical-align: middle;
+  font-size: 1.3rem;
+  align-items: center;
+  vertical-align: middle;
 }
 
 @media screen and (max-width: 1100px) {
+  .Status_div {
+    margin: 4rem 1rem;
+  }
+
+  @media screen and (max-width: 700px) {
     .Status_div {
-        margin: 4rem 1rem;
+      margin: 1.3rem 0.3rem;
     }
 
-    @media screen and (max-width: 700px) {
-        .Status_div {
-            margin: 1.3rem .3rem;
-        }
-
-        .Status_div h2 {
-            margin-bottom: .6rem;
-            font-size: 1.2rem;
-        }
-
-        .statusText {
-            font-weight: 400;
-            font-size: 8.rem;
-        }
+    .Status_div h2 {
+      margin-bottom: 0.6rem;
+      font-size: 1.2rem;
     }
+
+    .statusText {
+      font-weight: 400;
+      font-size: 0.8rem;
+    }
+  }
 }
